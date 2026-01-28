@@ -150,7 +150,8 @@ http://192.168.249.128:8000
 
 Installation verification screenshot:
 
-![Splunk Web Interface Running Successfully](./Screenshots/setup.png)
+![Splunk Setup](Screenshots/setup.png)
+
 
 
 ✅ Preview In VS Code
