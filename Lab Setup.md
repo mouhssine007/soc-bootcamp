@@ -150,7 +150,8 @@ http://192.168.249.128:8000
 
 Installation verification screenshot:
 
-![Splunk Web Interface Running Successfully](Screenshots/setup.png)
+![Splunk Web Interface Running Successfully](./Screenshots/setup.png)
+
 
 ✅ Preview In VS Code
 
@@ -167,4 +168,4 @@ Run in your project folder:
 
 git add .
 git commit -m "Add Splunk installation verification screenshot"
-git push
+git pushgit
