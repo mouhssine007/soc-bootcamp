@@ -1,0 +1,1300 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SOC Level 1 — Final Theory Exam (EN + FR) + Vocabulary (EN→FR→AR)</title>
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --panel:#0f1a2e;
+      --panel2:#0c1628;
+      --text:#e8eefc;
+      --muted:#b7c3df;
+      --accent:#63b3ff;
+      --accent2:#7cf3c6;
+      --danger:#ff6b6b;
+      --warn:#ffd166;
+      --ok:#33d69f;
+      --border:rgba(255,255,255,.08);
+      --shadow: 0 12px 30px rgba(0,0,0,.35);
+      --radius:16px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      background:
+        radial-gradient(900px 400px at 15% 0%, rgba(99,179,255,.20), transparent 60%),
+        radial-gradient(800px 380px at 85% 10%, rgba(124,243,198,.16), transparent 55%),
+        linear-gradient(180deg, var(--bg), #050914 90%);
+      color:var(--text);
+      line-height:1.45;
+    }
+    .wrap{max-width:1100px;margin:0 auto;padding:28px 16px 60px}
+    header{
+      display:flex;gap:16px;align-items:flex-start;justify-content:space-between;
+      padding:18px 18px;border:1px solid var(--border);border-radius:var(--radius);
+      background:linear-gradient(180deg, rgba(15,26,46,.9), rgba(12,22,40,.88));
+      box-shadow:var(--shadow);
+    }
+    .brand{display:flex;gap:14px;align-items:flex-start;}
+    .logo{
+      width:44px;height:44px;border-radius:12px;
+      background:linear-gradient(135deg, rgba(99,179,255,.95), rgba(124,243,198,.95));
+      box-shadow:0 10px 24px rgba(99,179,255,.18);
+      position:relative;overflow:hidden;
+    }
+    .logo:before{
+      content:"";position:absolute;inset:-40%;
+      background:repeating-linear-gradient(90deg, rgba(0,0,0,.18) 0 10px, transparent 10px 20px);
+      transform:rotate(18deg);
+    }
+    h1{margin:0;font-size:20px;letter-spacing:.2px}
+    .subtitle{margin:6px 0 0;color:var(--muted);font-size:13px}
+    .pill{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:8px 10px;border-radius:999px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.03);
+      color:var(--muted);font-size:12px;
+    }
+    .pill b{color:var(--text)}
+    .grid{
+      display:grid;grid-template-columns: 1.3fr .7fr;gap:16px;margin-top:16px;
+    }
+    @media (max-width: 900px){.grid{grid-template-columns:1fr}}
+    .card{
+      background:linear-gradient(180deg, rgba(15,26,46,.92), rgba(12,22,40,.90));
+      border:1px solid var(--border);border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .card .hd{
+      padding:14px 16px;border-bottom:1px solid var(--border);
+      display:flex;align-items:center;justify-content:space-between;gap:12px;
+    }
+    .card .hd h2{margin:0;font-size:14px;color:var(--text);letter-spacing:.2px}
+    .card .bd{padding:16px}
+    .mini{font-size:12px;color:var(--muted)}
+    .kbd{
+      font-family:var(--mono);
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:10px;padding:2px 8px;font-size:12px;color:var(--text);
+    }
+    .btns{display:flex;flex-wrap:wrap;gap:8px}
+    button{
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.04);
+      color:var(--text);
+      padding:9px 12px;border-radius:12px;
+      cursor:pointer;font-weight:600;font-size:12px;
+      transition:.15s ease;
+    }
+    button:hover{transform:translateY(-1px);border-color:rgba(99,179,255,.45)}
+    .primary{
+      background:linear-gradient(135deg, rgba(99,179,255,.9), rgba(124,243,198,.75));
+      color:#04111b;border-color:rgba(255,255,255,.20);
+    }
+    .danger{border-color:rgba(255,107,107,.35)}
+    .danger:hover{border-color:rgba(255,107,107,.55)}
+    .meta{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+    .stat{
+      padding:10px 12px;border-radius:14px;border:1px solid var(--border);
+      background:rgba(255,255,255,.03);
+    }
+    .stat .k{font-size:11px;color:var(--muted)}
+    .stat .v{font-size:16px;font-weight:800;margin-top:4px}
+    .warn{color:var(--warn)}
+    .ok{color:var(--ok)}
+    .sectionTitle{
+      display:flex;align-items:center;justify-content:space-between;gap:10px;
+      margin:18px 2px 10px;
+    }
+    .sectionTitle h3{margin:0;font-size:14px}
+    .sectionTitle .tag{
+      font-size:11px;color:var(--muted);
+      border:1px solid var(--border);
+      padding:6px 10px;border-radius:999px;
+      background:rgba(255,255,255,.03);
+    }
+    .q{
+      border:1px solid var(--border);
+      border-radius:16px;
+      background:rgba(255,255,255,.02);
+      margin:12px 0;
+      overflow:hidden;
+    }
+    .q .qhd{
+      padding:14px 14px 10px;
+      display:flex;align-items:flex-start;justify-content:space-between;gap:10px;
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .qnum{
+      font-family:var(--mono);
+      font-weight:800;
+      color:var(--accent);
+      font-size:12px;
+      padding:6px 10px;border-radius:999px;
+      border:1px solid rgba(99,179,255,.25);
+      background:rgba(99,179,255,.08);
+      white-space:nowrap;
+    }
+    .qtitle{margin:0;font-size:13px;color:var(--text);}
+    .module{
+      font-size:11px;color:var(--muted);
+      padding:6px 10px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.02);
+      white-space:nowrap;
+    }
+    .q .qbd{padding:12px 14px 14px}
+    .opt{
+      display:flex;gap:10px;align-items:flex-start;
+      padding:10px 10px;border-radius:14px;
+      border:1px solid rgba(255,255,255,.07);
+      background:rgba(12,22,40,.35);
+      margin:8px 0;
+      cursor:pointer;
+      transition:.12s ease;
+    }
+    .opt:hover{border-color:rgba(99,179,255,.35);transform:translateY(-1px)}
+    .opt input{margin-top:4px}
+    .opt .label{font-size:12px;color:var(--text);}
+    .opt .label small{display:block;color:var(--muted);margin-top:3px}
+    .exp{
+      margin-top:10px;
+      padding:10px 12px;border-radius:14px;
+      border:1px dashed rgba(255,255,255,.16);
+      background:rgba(255,255,255,.03);
+      display:none;
+    }
+    .exp b{color:var(--accent2)}
+    .key{font-family:var(--mono);font-size:12px;color:var(--muted)}
+    .note{
+      border-left:3px solid rgba(99,179,255,.55);
+      padding:8px 12px;border-radius:12px;
+      background:rgba(99,179,255,.06);
+      margin-top:10px;
+      color:var(--muted);
+      font-size:12px;
+    }
+    .searchRow{display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+    .searchRow input{
+      flex:1;min-width:240px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.10);
+      color:var(--text);
+      border-radius:14px;
+      padding:10px 12px;
+      outline:none;
+      font-size:12px;
+    }
+    .tableWrap{
+      overflow:auto;border:1px solid var(--border);border-radius:16px;
+      background:rgba(255,255,255,.02);
+    }
+    table{width:100%;border-collapse:collapse;min-width:780px}
+    th, td{
+      padding:10px 12px;
+      border-bottom:1px solid rgba(255,255,255,.08);
+      vertical-align:top;
+      font-size:12px;
+    }
+    th{
+      position:sticky;top:0;z-index:1;
+      background:rgba(15,26,46,.95);
+      text-align:left;color:var(--muted);font-weight:800;letter-spacing:.2px
+    }
+    td:nth-child(1){font-family:var(--mono);color:var(--text)}
+    td:nth-child(3){
+      direction:rtl;
+      font-family:"Noto Naskh Arabic","Amiri","Scheherazade New",Tahoma,Arial,sans-serif;
+      font-size:13px;
+    }
+    footer{margin-top:18px;color:var(--muted);font-size:12px}
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <h1>SOC Level 1 — Final Theory Exam (EN + FR) + Vocabulary (EN→FR→AR)</h1>
+          <p class="subtitle">
+            Exam-style MCQs with <b>English questions</b> + <b>French explanations</b>. Options include French translation when it exists.
+          </p>
+          <div class="pill">
+            <span>Coverage:</span><b>All SOC L1 modules</b><span class="mini">(+ Threat Hunting)</span>
+          </div>
+          <div class="note">
+            Tip: Answer first, then click <span class="kbd">Reveal Answers</span>. Then drill the Vocabulary table.
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="btns">
+          <button class="primary" onclick="revealAll()">Reveal Answers</button>
+          <button onclick="hideAll()">Hide Explanations</button>
+          <button class="danger" onclick="resetAll()">Reset</button>
+        </div>
+
+        <div class="meta">
+          <div class="stat"><div class="k">Questions</div><div class="v">60</div></div>
+          <div class="stat"><div class="k">Mode</div><div class="v"><span class="ok">Theory</span></div></div>
+          <div class="stat"><div class="k">Difficulty</div><div class="v"><span class="warn">Exam</span></div></div>
+          <div class="stat"><div class="k">Focus</div><div class="v">SOC L1</div></div>
+        </div>
+      </div>
+    </header>
+
+    <div class="grid">
+      <!-- LEFT: EXAM -->
+      <div class="card">
+        <div class="hd">
+          <h2>Final Exam — MCQ (EN) + Explanations (FR)</h2>
+          <span class="mini">Select one option per question</span>
+        </div>
+
+        <div class="bd" id="exam">
+
+          <!-- ========================= PART A ========================= -->
+          <div class="sectionTitle">
+            <h3>Part A — SOC Fundamentals & Workflow</h3>
+            <span class="tag">SOC | Triage | Reporting | IR</span>
+          </div>
+
+          <!-- Q1 -->
+          <div class="q" data-answer="B">
+            <div class="qhd">
+              <span class="qnum">Q1</span>
+              <p class="qtitle">What is the primary mission of a SOC (Security Operations Center)?</p>
+              <span class="module">SOC Fundamentals</span>
+            </div>
+            <div class="qbd">
+              <label class="opt"><input type="radio" name="q1" value="A"/><span class="label">A) Develop applications <small>(Développer des applications)</small></span></label>
+              <label class="opt"><input type="radio" name="q1" value="B"/><span class="label">B) Monitor, detect, and respond to security incidents <small>(Surveiller, détecter, répondre aux incidents)</small></span></label>
+              <label class="opt"><input type="radio" name="q1" value="C"/><span class="label">C) Create malware <small>(Créer des malwares)</small></span></label>
+              <label class="opt"><input type="radio" name="q1" value="D"/><span class="label">D) Manage finances <small>(Gérer les finances)</small></span></label>
+              <div class="exp"><div class="key">Answer: <b>B</b></div>FR: Le SOC fait monitoring 24/7, détection et réponse aux incidents.</div>
+            </div>
+          </div>
+
+          <!-- Q2 -->
+          <div class="q" data-answer="C">
+            <div class="qhd">
+              <span class="qnum">Q2</span>
+              <p class="qtitle">What is the main responsibility of a SOC Level 1 Analyst?</p>
+              <span class="module">SOC Roles</span>
+            </div>
+            <div class="qbd">
+              <label class="opt"><input type="radio" name="q2" value="A"/><span class="label">A) Threat Hunting as main daily task <small>(Principalement du Threat Hunting)</small></span></label>
+              <label class="opt"><input type="radio" name="q2" value="B"/><span class="label">B) Reverse engineering malware <small>(Rétro-ingénierie)</small></span></label>
+              <label class="opt"><input type="radio" name="q2" value="C"/><span class="label">C) Alert monitoring and triage <small>(Surveillance et tri des alertes)</small></span></label>
+              <label class="opt"><input type="radio" name="q2" value="D"/><span class="label">D) Build network topology <small>(Concevoir la topologie)</small></span></label>
+              <div class="exp"><div class="key">Answer: <b>C</b></div>FR: L1 fait le triage, collecte preuves, confirme FP/TP et escalade.</div>
+            </div>
+          </div>
+
+          <!-- Q3 -->
+          <div class="q" data-answer="A">
+            <div class="qhd">
+              <span class="qnum">Q3</span>
+              <p class="qtitle">Which is the BEST definition of an Incident?</p>
+              <span class="module">Incident Basics</span>
+            </div>
+            <div class="qbd">
+              <label class="opt"><input type="radio" name="q3" value="A"/><span class="label">A) A violation or imminent threat to confidentiality, integrity, or availability (CIA) <small>(Violation/menace sur CIA)</small></span></label>
+              <label class="opt"><input type="radio" name="q3" value="B"/><span class="label">B) Any system update <small>(Toute mise à jour)</small></span></label>
+              <label class="opt"><input type="radio" name="q3" value="C"/><span class="label">C) A normal login <small>(Connexion normale)</small></span></label>
+              <label class="opt"><input type="radio" name="q3" value="D"/><span class="label">D) Any firewall rule change <small>(Tout changement pare-feu)</small></span></label>
+              <div class="exp"><div class="key">Answer: <b>A</b></div>FR: Incident = impact (ou risque) sur la triade CIA.</div>
+            </div>
+          </div>
+
+          <!-- Q4 -->
+          <div class="q" data-answer="D">
+            <div class="qhd">
+              <span class="qnum">Q4</span>
+              <p class="qtitle">In Incident Response, what comes FIRST?</p>
+              <span class="module">Incident Response</span>
+            </div>
+            <div class="qbd">
+              <label class="opt"><input type="radio" name="q4" value="A"/><span class="label">A) Eradication <small>(Éradication)</small></span></label>
+              <label class="opt"><input type="radio" name="q4" value="B"/><span class="label">B) Recovery <small>(Rétablissement)</small></span></label>
+              <label class="opt"><input type="radio" name="q4" value="C"/><span class="label">C) Lessons Learned <small>(Retour d’expérience)</small></span></label>
+              <label class="opt"><input type="radio" name="q4" value="D"/><span class="label">D) Identification <small>(Identification)</small></span></label>
+              <div class="exp"><div class="key">Answer: <b>D</b></div>FR: On identifie/valide avant containment/eradication.</div>
+            </div>
+          </div>
+
+          <!-- Q5 -->
+          <div class="q" data-answer="B">
+            <div class="qhd">
+              <span class="qnum">Q5</span>
+              <p class="qtitle">What is Alert Triage (Tri des alertes)?</p>
+              <span class="module">Triage</span>
+            </div>
+            <div class="qbd">
+              <label class="opt"><input type="radio" name="q5" value="A"/><span class="label">A) Deleting alerts <small>(Supprimer les alertes)</small></span></label>
+              <label class="opt"><input type="radio" name="q5" value="B"/><span class="label">B) Prioritizing and analyzing alerts by severity & context <small>(Prioriser et analyser)</small></span></label>
+              <label class="opt"><input type="radio" name="q5" value="C"/><span class="label">C) Installing antivirus <small>(Installer antivirus)</small></span></label>
+              <label class="opt"><input type="radio" name="q5" value="D"/><span class="label">D) Writing exploit code <small>(Écrire des exploits)</small></span></label>
+              <div class="exp"><div class="key">Answer: <b>B</b></div>FR: Triage = contexte + FP/TP + escalation.</div>
+            </div>
+          </div>
+
+          <!-- Q6 (your requested style example) -->
+          <div class="q" data-answer="B">
+            <div class="qhd">
+              <span class="qnum">Q6</span>
+              <p class="qtitle">Which option BEST describes a False Positive (FP)?</p>
+              <span class="module">Triage</span>
+            </div>
+            <div class="qbd">
+              <label class="opt"><input type="radio" name="q6" value="A"/><span class="label">A) Real attack <small>(Attaque réelle)</small></span></label>
+              <label class="opt"><input type="radio" name="q6" value="B"/><span class="label">B) Benign activity detected as malicious <small>(Activité légitime détectée comme malveillante)</small></span></label>
+              <label class="opt"><input type="radio" name="q6" value="C"/><span class="label">C) Malware infection <small>(Infection par malware)</small></span></label>
+              <label class="opt"><input type="radio" name="q6" value="D"/><span class="label">D) Data breach <small>(Violation de données)</small></span></label>
+              <div class="exp"><div class="key">Answer: <b>B</b></div>FR: FP = alerte “malicious” alors que c’est normal.</div>
+            </div>
+          </div>
+
+          <!-- Q7 -->
+          <div class="q" data-answer="A">
+            <div class="qhd">
+              <span class="qnum">Q7</span>
+              <p class="qtitle">What is a False Negative (FN)?</p>
+              <span class="module">Triage</span>
+            </div>
+            <div class="qbd">
+              <label class="opt"><input type="radio" name="q7" value="A"/><span class="label">A) Malicious activity NOT detected by controls <small>(Activité malveillante non détectée)</small></span></label>
+              <label class="opt"><input type="radio" name="q7" value="B"/><span class="label">B) Benign activity detected as malicious <small>(Faux positif)</small></span></label>
+              <label class="opt"><input type="radio" name="q7" value="C"/><span class="label">C) A patch update <small>(Une mise à jour)</small></span></label>
+              <label class="opt"><input type="radio" name="q7" value="D"/><span class="label">D) A closed ticket <small>(Ticket fermé)</small></span></label>
+              <div class="exp"><div class="key">Answer: <b>A</b></div>FR: FN = attaque qui passe “sous le radar”.</div>
+            </div>
+          </div>
+
+          <!-- Q8 -->
+          <div class="q" data-answer="D">
+            <div class="qhd">
+              <span class="qnum">Q8</span>
+              <p class="qtitle">What should a good SOC report include FIRST?</p>
+              <span class="module">Reporting</span>
+            </div>
+            <div class="qbd">
+              <label class="opt"><input type="radio" name="q8" value="A"/><span class="label">A) Personal opinions <small>(Opinions personnelles)</small></span></label>
+              <label class="opt"><input type="radio" name="q8" value="B"/><span class="label">B) Fancy formatting <small>(Mise en forme)</small></span></label>
+              <label class="opt"><input type="radio" name="q8" value="C"/><span class="label">C) Blame to a user <small>(Blâmer un utilisateur)</small></span></label>
+              <label class="opt"><input type="radio" name="q8" value="D"/><span class="label">D) Facts: timeline, indicators, impact, and next steps <small>(Faits: chronologie, IOCs, impact, actions)</small></span></label>
+              <div class="exp"><div class="key">Answer: <b>D</b></div>FR: Rapport = factuel, daté, reproductible.</div>
+            </div>
+          </div>
+
+          <!-- ========================= PART B ========================= -->
+          <div class="sectionTitle">
+            <h3>Part B — SIEM, Logs & Detection</h3>
+            <span class="tag">SIEM | SPL | KQL | Windows/Linux</span>
+          </div>
+
+          <!-- Q9 -->
+          <div class="q" data-answer="B">
+            <div class="qhd"><span class="qnum">Q9</span><p class="qtitle">What does SIEM stand for?</p><span class="module">SIEM</span></div>
+            <div class="qbd">
+              <label class="opt"><input type="radio" name="q9" value="A"/><span class="label">A) Secure Internet Event Module <small>(Incorrect)</small></span></label>
+              <label class="opt"><input type="radio" name="q9" value="B"/><span class="label">B) Security Information and Event Management <small>(Gestion des infos & événements de sécurité)</small></span></label>
+              <label class="opt"><input type="radio" name="q9" value="C"/><span class="label">C) System Intrusion Email Manager <small>(Incorrect)</small></span></label>
+              <label class="opt"><input type="radio" name="q9" value="D"/><span class="label">D) Security Identity and Endpoint Monitoring <small>(Incorrect)</small></span></label>
+              <div class="exp"><div class="key">Answer: <b>B</b></div>FR: SIEM = collecte + corrélation + alerting + dashboards.</div>
+            </div>
+          </div>
+
+          <!-- Q10 -->
+          <div class="q" data-answer="A">
+            <div class="qhd"><span class="qnum">Q10</span><p class="qtitle">In a SIEM, what is correlation?</p><span class="module">SIEM</span></div>
+            <div class="qbd">
+              <label class="opt"><input type="radio" name="q10" value="A"/><span class="label">A) Linking multiple events to identify a pattern/attack <small>(Relier événements pour détecter un pattern)</small></span></label>
+              <label class="opt"><input type="radio" name="q10" value="B"/><span class="label">B) Encrypting logs <small>(Chiffrer les logs)</small></span></label>
+              <label class="opt"><input type="radio" name="q10" value="C"/><span class="label">C) Deleting duplicates <small>(Supprimer doublons)</small></span></label>
+              <label class="opt"><input type="radio" name="q10" value="D"/><span class="label">D) Backing up disks <small>(Sauvegarder disques)</small></span></label>
+              <div class="exp"><div class="key">Answer: <b>A</b></div>FR: Ex: échecs login + succès + PowerShell = suspicion.</div>
+            </div>
+          </div>
+
+          <!-- Q11 -->
+          <div class="q" data-answer="D">
+            <div class="qhd"><span class="qnum">Q11</span><p class="qtitle">Which data is MOST valuable for alert context?</p><span class="module">Context</span></div>
+            <div class="qbd">
+              <label class="opt"><input type="radio" name="q11" value="A"/><span class="label">A) Screen brightness <small>(Luminosité)</small></span></label>
+              <label class="opt"><input type="radio" name="q11" value="B"/><span class="label">B) Mouse DPI <small>(DPI)</small></span></label>
+              <label class="opt"><input type="radio" name="q11" value="C"/><span class="label">C) Wallpaper name <small>(Fond d’écran)</small></span></label>
+              <label class="opt"><input type="radio" name="q11" value="D"/><span class="label">D) User, host, timestamp, process, network indicators <small>(User, host, time, process, réseau)</small></span></label>
+              <div class="exp"><div class="key">Answer: <b>D</b></div>FR: Contexte = timeline + IOCs + criticité asset.</div>
+            </div>
+          </div>
+
+          <!-- Q12 -->
+          <div class="q" data-answer="B">
+            <div class="qhd"><span class="qnum">Q12</span><p class="qtitle">Splunk uses which query language most commonly?</p><span class="module">Splunk</span></div>
+            <div class="qbd">
+              <label class="opt"><input type="radio" name="q12" value="A"/><span class="label">A) SQL <small>(Pas le principal)</small></span></label>
+              <label class="opt"><input type="radio" name="q12" value="B"/><span class="label">B) SPL <small>(Search Processing Language)</small></span></label>
+              <label class="opt"><input type="radio" name="q12" value="C"/><span class="label">C) Bash <small>(Shell)</small></span></label>
+              <label class="opt"><input type="radio" name="q12" value="D"/><span class="label">D) HTML <small>(Web)</small></span></label>
+              <div class="exp"><div class="key">Answer: <b>B</b></div>FR: Splunk = SPL (stats, timechart, rex, eval...).</div>
+            </div>
+          </div>
+
+          <!-- Q13 -->
+          <div class="q" data-answer="A">
+            <div class="qhd"><span class="qnum">Q13</span><p class="qtitle">Elastic (Kibana) commonly uses which query language?</p><span class="module">Elastic</span></div>
+            <div class="qbd">
+              <label class="opt"><input type="radio" name="q13" value="A"/><span class="label">A) KQL / Lucene <small>(KQL / Lucene)</small></span></label>
+              <label class="opt"><input type="radio" name="q13" value="B"/><span class="label">B) VBA <small>(Excel)</small></span></label>
+              <label class="opt"><input type="radio" name="q13" value="C"/><span class="label">C) C++ <small>(Langage)</small></span></label>
+              <label class="opt"><input type="radio" name="q13" value="D"/><span class="label">D) DNS <small>(Protocole)</small></span></label>
+              <div class="exp"><div class="key">Answer: <b>A</b></div>FR: Kibana = filtres KQL (ex: process.name:"powershell.exe").</div>
+            </div>
+          </div>
+
+          <!-- Q14 -->
+          <div class="q" data-answer="C">
+            <div class="qhd"><span class="qnum">Q14</span><p class="qtitle">Which Windows log is MOST important for authentication events?</p><span class="module">Windows Logs</span></div>
+            <div class="qbd">
+              <label class="opt"><input type="radio" name="q14" value="A"/><span class="label">A) Application log <small>(Application)</small></span></label>
+              <label class="opt"><input type="radio" name="q14" value="B"/><span class="label">B) Setup log <small>(Setup)</small></span></label>
+              <label class="opt"><input type="radio" name="q14" value="C"/><span class="label">C) Security log <small>(Sécurité)</small></span></label>
+              <label class="opt"><input type="radio" name="q14" value="D"/><span class="label">D) Print service log <small>(Impression)</small></span></label>
+              <div class="exp"><div class="key">Answer: <b>C</b></div>FR: Logons, failures, groupes, etc. sont dans Security.</div>
+            </div>
+          </div>
+
+          <!-- Q15 -->
+          <div class="q" data-answer="B">
+            <div class="qhd"><span class="qnum">Q15</span><p class="qtitle">On Linux (Ubuntu/Debian), which file typically stores authentication logs?</p><span class="module">Linux Logs</span></div>
+            <div class="qbd">
+              <label class="opt"><input type="radio" name="q15" value="A"/><span class="label">A) /etc/passwd <small>(Comptes)</small></span></label>
+              <label class="opt"><input type="radio" name="q15" value="B"/><span class="label">B) /var/log/auth.log <small>(Journal d’auth)</small></span></label>
+              <label class="opt"><input type="radio" name="q15" value="C"/><span class="label">C) /bin/bash <small>(Shell)</small></span></label>
+              <label class="opt"><input type="radio" name="q15" value="D"/><span class="label">D) ~/.ssh/id_rsa <small>(Clé privée)</small></span></label>
+              <div class="exp"><div class="key">Answer: <b>B</b></div>FR: Ubuntu/Debian: auth/sudo/sshd dans /var/log/auth.log.</div>
+            </div>
+          </div>
+
+          <!-- Q16 -->
+          <div class="q" data-answer="A">
+            <div class="qhd"><span class="qnum">Q16</span><p class="qtitle">What is normalization in SIEM?</p><span class="module">SIEM</span></div>
+            <div class="qbd">
+              <label class="opt"><input type="radio" name="q16" value="A"/><span class="label">A) Converting logs into a common format/fields <small>(Format/champs communs)</small></span></label>
+              <label class="opt"><input type="radio" name="q16" value="B"/><span class="label">B) Compressing logs only <small>(Compresser)</small></span></label>
+              <label class="opt"><input type="radio" name="q16" value="C"/><span class="label">C) Deleting old logs <small>(Supprimer)</small></span></label>
+              <label class="opt"><input type="radio" name="q16" value="D"/><span class="label">D) Painting dashboards <small>(Décorer)</small></span></label>
+              <div class="exp"><div class="key">Answer: <b>A</b></div>FR: Normaliser = champs communs pour corrélation/recherche.</div>
+            </div>
+          </div>
+
+          <!-- Q17 -->
+          <div class="q" data-answer="D">
+            <div class="qhd"><span class="qnum">Q17</span><p class="qtitle">Which is an IOC (Indicator of Compromise)?</p><span class="module">IOCs</span></div>
+            <div class="qbd">
+              <label class="opt"><input type="radio" name="q17" value="A"/><span class="label">A) A company logo <small>(Logo)</small></span></label>
+              <label class="opt"><input type="radio" name="q17" value="B"/><span class="label">B) Office chair model <small>(Chaise)</small></span></label>
+              <label class="opt"><input type="radio" name="q17" value="C"/><span class="label">C) Lunch time <small>(Déjeuner)</small></span></label>
+              <label class="opt"><input type="radio" name="q17" value="D"/><span class="label">D) Malicious domain / hash / IP <small>(Domaine/hash/IP malveillant)</small></span></label>
+              <div class="exp"><div class="key">Answer: <b>D</b></div>FR: IOC = signal d’attaque (IP, domain, hash, URL...).</div>
+            </div>
+          </div>
+
+          <!-- Q18 -->
+          <div class="q" data-answer="B">
+            <div class="qhd"><span class="qnum">Q18</span><p class="qtitle">Why baseline “normal behavior”?</p><span class="module">Detection</span></div>
+            <div class="qbd">
+              <label class="opt"><input type="radio" name="q18" value="A"/><span class="label">A) To make reports longer <small>(Allonger)</small></span></label>
+              <label class="opt"><input type="radio" name="q18" value="B"/><span class="label">B) To spot anomalies and reduce false positives <small>(Détecter anomalies + réduire FP)</small></span></label>
+              <label class="opt"><input type="radio" name="q18" value="C"/><span class="label">C) To disable logging <small>(Désactiver logs)</small></span></label>
+              <label class="opt"><input type="radio" name="q18" value="D"/><span class="label">D) To hide attacks <small>(Cacher attaques)</small></span></label>
+              <div class="exp"><div class="key">Answer: <b>B</b></div>FR: Baseline = distinguer normal vs suspicious.</div>
+            </div>
+          </div>
+
+          <!-- ========================= PART C ========================= -->
+          <div class="sectionTitle">
+            <h3>Part C — Phishing, Threat Intel, Frameworks</h3>
+            <span class="tag">Phishing | TI | MITRE | Kill Chain | Pyramid</span>
+          </div>
+
+          <!-- Q19 -->
+          <div class="q" data-answer="C">
+            <div class="qhd"><span class="qnum">Q19</span><p class="qtitle">Phishing is best classified as what type of attack?</p><span class="module">Phishing</span></div>
+            <div class="qbd">
+              <label class="opt"><input type="radio" name="q19" value="A"/><span class="label">A) Physical attack <small>(Physique)</small></span></label>
+              <label class="opt"><input type="radio" name="q19" value="B"/><span class="label">B) Hardware attack <small>(Matériel)</small></span></label>
+              <label class="opt"><input type="radio" name="q19" value="C"/><span class="label">C) Social engineering attack <small>(Ingénierie sociale)</small></span></label>
+              <label class="opt"><input type="radio" name="q19" value="D"/><span class="label">D) Power outage <small>(Coupure)</small></span></label>
+              <div class="exp"><div class="key">Answer: <b>C</b></div>FR: Le phishing manipule l’humain (clic/identifiants).</div>
+            </div>
+          </div>
+
+          <!-- Q20 -->
+          <div class="q" data-answer="A">
+            <div class="qhd"><span class="qnum">Q20</span><p class="qtitle">Which is a common phishing indicator?</p><span class="module">Phishing</span></div>
+            <div class="qbd">
+              <label class="opt"><input type="radio" name="q20" value="A"/><span class="label">A) Suspicious sender domain / look-alike domain <small>(Domaine suspect / imitation)</small></span></label>
+              <label class="opt"><input type="radio" name="q20" value="B"/><span class="label">B) Strong password policy <small>(Politique forte)</small></span></label>
+              <label class="opt"><input type="radio" name="q20" value="C"/><span class="label">C) Updated OS <small>(OS à jour)</small></span></label>
+              <label class="opt"><input type="radio" name="q20" value="D"/><span class="label">D) MFA enabled <small>(MFA activée)</small></span></label>
+              <div class="exp"><div class="key">Answer: <b>A</b></div>FR: Look-alike domains + urgence + liens bizarres = phishing.</div>
+            </div>
+          </div>
+
+          <!-- Q21 -->
+          <div class="q" data-answer="D">
+            <div class="qhd"><span class="qnum">Q21</span><p class="qtitle">Threat Intelligence (CTI) is used for…</p><span class="module">Threat Intel</span></div>
+            <div class="qbd">
+              <label class="opt"><input type="radio" name="q21" value="A"/><span class="label">A) Increasing screen resolution <small>(Résolution)</small></span></label>
+              <label class="opt"><input type="radio" name="q21" value="B"/><span class="label">B) Designing logos <small>(Logos)</small></span></label>
+              <label class="opt"><input type="radio" name="q21" value="C"/><span class="label">C) Replacing backups <small>(Backups)</small></span></label>
+              <label class="opt"><input type="radio" name="q21" value="D"/><span class="label">D) Enriching investigations with IOCs, TTPs, actor/campaign context <small>(Enrichir enquêtes)</small></span></label>
+              <div class="exp"><div class="key">Answer: <b>D</b></div>FR: TI = contexte: réputation IP/domain, malware family, campagnes, mapping MITRE.</div>
+            </div>
+          </div>
+
+          <!-- Q22 -->
+          <div class="q" data-answer="B">
+            <div class="qhd"><span class="qnum">Q22</span><p class="qtitle">MITRE ATT&CK is best described as…</p><span class="module">Frameworks</span></div>
+            <div class="qbd">
+              <label class="opt"><input type="radio" name="q22" value="A"/><span class="label">A) A patch management tool <small>(Patch tool)</small></span></label>
+              <label class="opt"><input type="radio" name="q22" value="B"/><span class="label">B) A knowledge base of attacker tactics & techniques <small>(Base tactiques/techniques)</small></span></label>
+              <label class="opt"><input type="radio" name="q22" value="C"/><span class="label">C) A firewall brand <small>(Marque)</small></span></label>
+              <label class="opt"><input type="radio" name="q22" value="D"/><span class="label">D) A password manager <small>(Passwords)</small></span></label>
+              <div class="exp"><div class="key">Answer: <b>B</b></div>FR: MITRE aide à mapper détections et gaps.</div>
+            </div>
+          </div>
+
+          <!-- Q23 -->
+          <div class="q" data-answer="D">
+            <div class="qhd"><span class="qnum">Q23</span><p class="qtitle">In the Cyber Kill Chain, Reconnaissance happens…</p><span class="module">Frameworks</span></div>
+            <div class="qbd">
+              <label class="opt"><input type="radio" name="q23" value="A"/><span class="label">A) After actions on objectives <small>(Après)</small></span></label>
+              <label class="opt"><input type="radio" name="q23" value="B"/><span class="label">B) Only during containment <small>(Uniquement)</small></span></label>
+              <label class="opt"><input type="radio" name="q23" value="C"/><span class="label">C) After eradication <small>(Après)</small></span></label>
+              <label class="opt"><input type="radio" name="q23" value="D"/><span class="label">D) Early, before exploitation/delivery <small>(Très tôt)</small></span></label>
+              <div class="exp"><div class="key">Answer: <b>D</b></div>FR: Recon = collecte info avant l’attaque.</div>
+            </div>
+          </div>
+
+          <!-- Q24 -->
+          <div class="q" data-answer="C">
+            <div class="qhd"><span class="qnum">Q24</span><p class="qtitle">In Pyramid of Pain, which is hardest for attackers to change?</p><span class="module">Frameworks</span></div>
+            <div class="qbd">
+              <label class="opt"><input type="radio" name="q24" value="A"/><span class="label">A) IP addresses <small>(IP)</small></span></label>
+              <label class="opt"><input type="radio" name="q24" value="B"/><span class="label">B) Hash values <small>(Hash)</small></span></label>
+              <label class="opt"><input type="radio" name="q24" value="C"/><span class="label">C) TTPs (Tactics, Techniques, Procedures) <small>(TTPs)</small></span></label>
+              <label class="opt"><input type="radio" name="q24" value="D"/><span class="label">D) Domain names <small>(Domain)</small></span></label>
+              <div class="exp"><div class="key">Answer: <b>C</b></div>FR: Changer TTPs coûte cher à l’attaquant ⇒ défense forte.</div>
+            </div>
+          </div>
+
+          <!-- ========================= PART D ========================= -->
+          <div class="sectionTitle">
+            <h3>Part D — Network Traffic Analysis, IDS/IPS</h3>
+            <span class="tag">PCAP | Wireshark | DNS | HTTP | IDS</span>
+          </div>
+
+          <!-- Q25 -->
+          <div class="q" data-answer="B">
+            <div class="qhd"><span class="qnum">Q25</span><p class="qtitle">Which tool is commonly used to analyze PCAP files?</p><span class="module">Network</span></div>
+            <div class="qbd">
+              <label class="opt"><input type="radio" name="q25" value="A"/><span class="label">A) Photoshop <small>(Image)</small></span></label>
+              <label class="opt"><input type="radio" name="q25" value="B"/><span class="label">B) Wireshark <small>(Analyseur paquets)</small></span></label>
+              <label class="opt"><input type="radio" name="q25" value="C"/><span class="label">C) Excel <small>(Tableur)</small></span></label>
+              <label class="opt"><input type="radio" name="q25" value="D"/><span class="label">D) PowerPoint <small>(Slides)</small></span></label>
+              <div class="exp"><div class="key">Answer: <b>B</b></div>FR: Wireshark filtre par IP/port/protocole et reconstitue sessions.</div>
+            </div>
+          </div>
+
+          <!-- Q26 -->
+          <div class="q" data-answer="A">
+            <div class="qhd"><span class="qnum">Q26</span><p class="qtitle">What does DNS tunneling typically indicate?</p><span class="module">Network</span></div>
+            <div class="qbd">
+              <label class="opt"><input type="radio" name="q26" value="A"/><span class="label">A) Possible covert data exfiltration via DNS <small>(Exfiltration furtive via DNS)</small></span></label>
+              <label class="opt"><input type="radio" name="q26" value="B"/><span class="label">B) Normal browsing only <small>(Navigation normale)</small></span></label>
+              <label class="opt"><input type="radio" name="q26" value="C"/><span class="label">C) Printer configuration <small>(Imprimante)</small></span></label>
+              <label class="opt"><input type="radio" name="q26" value="D"/><span class="label">D) CPU overheating <small>(Surchauffe)</small></span></label>
+              <div class="exp"><div class="key">Answer: <b>A</b></div>FR: Signaux: requêtes longues, fréquence élevée, domaines suspects.</div>
+            </div>
+          </div>
+
+          <!-- ========================= PART E ========================= -->
+          <div class="sectionTitle">
+            <h3>Part E — Endpoint, Malware, EDR</h3>
+            <span class="tag">Malware | Persistence | EDR | Ransomware</span>
+          </div>
+
+          <!-- Q27 -->
+          <div class="q" data-answer="C">
+            <div class="qhd"><span class="qnum">Q27</span><p class="qtitle">What does EDR primarily provide?</p><span class="module">EDR</span></div>
+            <div class="qbd">
+              <label class="opt"><input type="radio" name="q27" value="A"/><span class="label">A) Only email spam filtering <small>(Spam)</small></span></label>
+              <label class="opt"><input type="radio" name="q27" value="B"/><span class="label">B) Only disk encryption <small>(Chiffrement disque)</small></span></label>
+              <label class="opt"><input type="radio" name="q27" value="C"/><span class="label">C) Endpoint telemetry + detection + response actions <small>(Télémétrie + détection + réponse)</small></span></label>
+              <label class="opt"><input type="radio" name="q27" value="D"/><span class="label">D) Website hosting <small>(Hébergement)</small></span></label>
+              <div class="exp"><div class="key">Answer: <b>C</b></div>FR: EDR = visibilité processus, réseau, fichiers + actions (isolation, kill process...).</div>
+            </div>
+          </div>
+
+          <!-- Q28 -->
+          <div class="q" data-answer="B">
+            <div class="qhd"><span class="qnum">Q28</span><p class="qtitle">Which is a common sign of ransomware impact?</p><span class="module">Ransomware</span></div>
+            <div class="qbd">
+              <label class="opt"><input type="radio" name="q28" value="A"/><span class="label">A) Faster Wi-Fi <small>(Wi-Fi plus rapide)</small></span></label>
+              <label class="opt"><input type="radio" name="q28" value="B"/><span class="label">B) Files suddenly encrypted + ransom note <small>(Fichiers chiffrés + note)</small></span></label>
+              <label class="opt"><input type="radio" name="q28" value="C"/><span class="label">C) Keyboard language changed <small>(Langue clavier)</small></span></label>
+              <label class="opt"><input type="radio" name="q28" value="D"/><span class="label">D) Monitor brightness changed <small>(Luminosité)</small></span></label>
+              <div class="exp"><div class="key">Answer: <b>B</b></div>FR: Indices: extensions inconnues, note, arrêt services sauvegarde, shadow copies supprimées.</div>
+            </div>
+          </div>
+
+          <!-- Q29 -->
+          <div class="q" data-answer="A">
+            <div class="qhd"><span class="qnum">Q29</span><p class="qtitle">“Persistence” in malware context means…</p><span class="module">Malware</span></div>
+            <div class="qbd">
+              <label class="opt"><input type="radio" name="q29" value="A"/><span class="label">A) Mechanisms to survive reboots and maintain access <small>(Survivre reboot + garder accès)</small></span></label>
+              <label class="opt"><input type="radio" name="q29" value="B"/><span class="label">B) Installing OS updates <small>(Mises à jour)</small></span></label>
+              <label class="opt"><input type="radio" name="q29" value="C"/><span class="label">C) Setting a wallpaper <small>(Wallpaper)</small></span></label>
+              <label class="opt"><input type="radio" name="q29" value="D"/><span class="label">D) Creating PDF reports <small>(PDF)</small></span></label>
+              <div class="exp"><div class="key">Answer: <b>A</b></div>FR: Ex: autorun keys, scheduled tasks, services, startup folders.</div>
+            </div>
+          </div>
+
+          <!-- Q30 -->
+          <div class="q" data-answer="D">
+            <div class="qhd"><span class="qnum">Q30</span><p class="qtitle">What is C2 (Command and Control)?</p><span class="module">C2</span></div>
+            <div class="qbd">
+              <label class="opt"><input type="radio" name="q30" value="A"/><span class="label">A) Backup system <small>(Backup)</small></span></label>
+              <label class="opt"><input type="radio" name="q30" value="B"/><span class="label">B) Password manager <small>(Password)</small></span></label>
+              <label class="opt"><input type="radio" name="q30" value="C"/><span class="label">C) Printer protocol <small>(Imprimante)</small></span></label>
+              <label class="opt"><input type="radio" name="q30" value="D"/><span class="label">D) Attacker infrastructure used to control compromised hosts <small>(Infrastructure de contrôle)</small></span></label>
+              <div class="exp"><div class="key">Answer: <b>D</b></div>FR: Beaconing vers IP/domain + commandes + exfiltration.</div>
+            </div>
+          </div>
+
+          <!-- ========================= PART F ========================= -->
+          <div class="sectionTitle">
+            <h3>Part F — Web Attacks & Defensive Basics</h3>
+            <span class="tag">SQLi | XSS | WAF | Auth</span>
+          </div>>
+          <!-- Q31 -->
+<div class="q" data-answer="A">
+  <div class="qhd">
+    <span class="qnum">Q31</span>
+    <p class="qtitle">What is SQL Injection (SQLi)?</p>
+    <span class="module">Web Attacks</span>
+  </div>
+  <div class="qbd">
+    <label class="opt"><input type="radio" name="q31" value="A"/>
+      <span class="label">A) Injecting malicious SQL queries to manipulate databases
+      <small>(Injection de requêtes SQL malveillantes)</small></span>
+    </label>
+    <label class="opt"><input type="radio" name="q31" value="B"/>
+      <span class="label">B) Encrypting SQL traffic
+      <small>(Chiffrement SQL)</small></span>
+    </label>
+    <label class="opt"><input type="radio" name="q31" value="C"/>
+      <span class="label">C) Blocking IP addresses
+      <small>(Blocage IP)</small></span>
+    </label>
+    <label class="opt"><input type="radio" name="q31" value="D"/>
+      <span class="label">D) Updating databases
+      <small>(Mise à jour base de données)</small></span>
+    </label>
+    <div class="exp">
+      <div class="key">Answer: <b>A</b></div>
+      FR: SQLi permet à un attaquant de lire, modifier ou supprimer des données.
+    </div>
+  </div>
+</div>
+
+<!-- Q32 -->
+<div class="q" data-answer="B">
+  <div class="qhd">
+    <span class="qnum">Q32</span>
+    <p class="qtitle">Which attack injects malicious JavaScript into web pages?</p>
+    <span class="module">Web Attacks</span>
+  </div>
+  <div class="qbd">
+    <label class="opt"><input type="radio" name="q32" value="A"/>
+      <span class="label">A) SQL Injection
+      <small>(Injection SQL)</small></span>
+    </label>
+    <label class="opt"><input type="radio" name="q32" value="B"/>
+      <span class="label">B) Cross-Site Scripting (XSS)
+      <small>(Script inter-sites)</small></span>
+    </label>
+    <label class="opt"><input type="radio" name="q32" value="C"/>
+      <span class="label">C) DoS Attack
+      <small>(Déni de service)</small></span>
+    </label>
+    <label class="opt"><input type="radio" name="q32" value="D"/>
+      <span class="label">D) Phishing
+      <small>(Hameçonnage)</small></span>
+    </label>
+    <div class="exp">
+      <div class="key">Answer: <b>B</b></div>
+      FR: XSS permet d’exécuter du JavaScript malveillant dans le navigateur victime.
+    </div>
+  </div>
+</div>
+
+<!-- Q33 -->
+<div class="q" data-answer="C">
+  <div class="qhd">
+    <span class="qnum">Q33</span>
+    <p class="qtitle">What is the main purpose of a Web Application Firewall (WAF)?</p>
+    <span class="module">Defense</span>
+  </div>
+  <div class="qbd">
+    <label class="opt"><input type="radio" name="q33" value="A"/>
+      <span class="label">A) Host websites
+      <small>(Hébergement)</small></span>
+    </label>
+    <label class="opt"><input type="radio" name="q33" value="B"/>
+      <span class="label">B) Encrypt databases
+      <small>(Chiffrement)</small></span>
+    </label>
+    <label class="opt"><input type="radio" name="q33" value="C"/>
+      <span class="label">C) Filter and block malicious HTTP traffic
+      <small>(Filtrer et bloquer trafic HTTP malveillant)</small></span>
+    </label>
+    <label class="opt"><input type="radio" name="q33" value="D"/>
+      <span class="label">D) Create backups
+      <small>(Sauvegardes)</small></span>
+    </label>
+    <div class="exp">
+      <div class="key">Answer: <b>C</b></div>
+      FR: Le WAF protège contre SQLi, XSS, LFI, RFI.
+    </div>
+  </div>
+</div>
+
+<!-- Q34 -->
+<div class="q" data-answer="A">
+  <div class="qhd">
+    <span class="qnum">Q34</span>
+    <p class="qtitle">Why is Multi-Factor Authentication (MFA) important?</p>
+    <span class="module">Authentication</span>
+  </div>
+  <div class="qbd">
+    <label class="opt"><input type="radio" name="q34" value="A"/>
+      <span class="label">A) It reduces risk even if passwords are stolen
+      <small>(Réduit le risque même si mot de passe compromis)</small></span>
+    </label>
+    <label class="opt"><input type="radio" name="q34" value="B"/>
+      <span class="label">B) It speeds up attacks
+      <small>(Accélère attaques)</small></span>
+    </label>
+    <label class="opt"><input type="radio" name="q34" value="C"/>
+      <span class="label">C) It disables logging
+      <small>(Désactive logs)</small></span>
+    </label>
+    <label class="opt"><input type="radio" name="q34" value="D"/>
+      <span class="label">D) It replaces antivirus
+      <small>(Remplace antivirus)</small></span>
+    </label>
+    <div class="exp">
+      <div class="key">Answer: <b>A</b></div>
+      FR: MFA bloque le credential stuffing et le phishing simple.
+    </div>
+  </div>
+</div>
+<!-- ========================= PART G ========================= -->
+<div class="sectionTitle">
+  <h3>Part G — Threat Hunting, SOAR & SOC Automation</h3>
+  <span class="tag">Threat Hunting | SOAR | Playbooks | Automation</span>
+</div>
+
+<!-- Q35 -->
+<div class="q" data-answer="B">
+  <div class="qhd">
+    <span class="qnum">Q35</span>
+    <p class="qtitle">What is Threat Hunting?</p>
+    <span class="module">Threat Hunting</span>
+  </div>
+  <div class="qbd">
+    <label class="opt"><input type="radio" name="q35" value="A"/>
+      <span class="label">A) Waiting for alerts only
+      <small>(Attendre uniquement les alertes)</small></span>
+    </label>
+    <label class="opt"><input type="radio" name="q35" value="B"/>
+      <span class="label">B) Proactively searching for hidden threats in the environment
+      <small>(Recherche proactive de menaces cachées)</small></span>
+    </label>
+    <label class="opt"><input type="radio" name="q35" value="C"/>
+      <span class="label">C) Installing antivirus
+      <small>(Installer antivirus)</small></span>
+    </label>
+    <label class="opt"><input type="radio" name="q35" value="D"/>
+      <span class="label">D) Blocking all IP addresses
+      <small>(Bloquer toutes les IP)</small></span>
+    </label>
+    <div class="exp">
+      <div class="key">Answer: <b>B</b></div>
+      FR: Threat Hunting = approche proactive pour détecter attaques non détectées par le SIEM.
+    </div>
+  </div>
+</div>
+
+<!-- Q36 -->
+<div class="q" data-answer="A">
+  <div class="qhd">
+    <span class="qnum">Q36</span>
+    <p class="qtitle">Why is Threat Hunting important for SOC maturity?</p>
+    <span class="module">Threat Hunting</span>
+  </div>
+  <div class="qbd">
+    <label class="opt"><input type="radio" name="q36" value="A"/>
+      <span class="label">A) It helps discover advanced and stealthy attacks
+      <small>(Découvrir attaques avancées et furtives)</small></span>
+    </label>
+    <label class="opt"><input type="radio" name="q36" value="B"/>
+      <span class="label">B) It replaces firewalls
+      <small>(Remplace pare-feu)</small></span>
+    </label>
+    <label class="opt"><input type="radio" name="q36" value="C"/>
+      <span class="label">C) It disables alerts
+      <small>(Désactive alertes)</small></span>
+    </label>
+    <label class="opt"><input type="radio" name="q36" value="D"/>
+      <span class="label">D) It encrypts traffic
+      <small>(Chiffre trafic)</small></span>
+    </label>
+    <div class="exp">
+      <div class="key">Answer: <b>A</b></div>
+      FR: Le Threat Hunting détecte les attaques sans signature et les comportements anormaux.
+    </div>
+  </div>
+</div>
+
+<!-- Q37 -->
+<div class="q" data-answer="C">
+  <div class="qhd">
+    <span class="qnum">Q37</span>
+    <p class="qtitle">What does SOAR stand for?</p>
+    <span class="module">SOAR</span>
+  </div>
+  <div class="qbd">
+    <label class="opt"><input type="radio" name="q37" value="A"/>
+      <span class="label">A) Security Operations and Alert Response
+      <small>(Incorrect)</small></span>
+    </label>
+    <label class="opt"><input type="radio" name="q37" value="B"/>
+      <span class="label">B) System Operations and Automation Rules
+      <small>(Incorrect)</small></span>
+    </label>
+    <label class="opt"><input type="radio" name="q37" value="C"/>
+      <span class="label">C) Security Orchestration, Automation and Response
+      <small>(Orchestration, Automatisation et Réponse)</small></span>
+    </label>
+    <label class="opt"><input type="radio" name="q37" value="D"/>
+      <span class="label">D) Secure Online Access Router
+      <small>(Incorrect)</small></span>
+    </label>
+    <div class="exp">
+      <div class="key">Answer: <b>C</b></div>
+      FR: SOAR automatise les réponses SOC et orchestre les outils sécurité.
+    </div>
+  </div>
+</div>
+
+<!-- Q38 -->
+<div class="q" data-answer="B">
+  <div class="qhd">
+    <span class="qnum">Q38</span>
+    <p class="qtitle">Which task is BEST suited for SOAR automation?</p>
+    <span class="module">SOAR</span>
+  </div>
+  <div class="qbd">
+    <label class="opt"><input type="radio" name="q38" value="A"/>
+      <span class="label">A) Writing malware
+      <small>(Créer malware)</small></span>
+    </label>
+    <label class="opt"><input type="radio" name="q38" value="B"/>
+      <span class="label">B) Automatically blocking malicious IPs and isolating endpoints
+      <small>(Bloquer IP + isoler machines automatiquement)</small></span>
+    </label>
+    <label class="opt"><input type="radio" name="q38" value="C"/>
+      <span class="label">C) Designing logos
+      <small>(Créer logos)</small></span>
+    </label>
+    <label class="opt"><input type="radio" name="q38" value="D"/>
+      <span class="label">D) Formatting reports
+      <small>(Mise en forme)</small></span>
+    </label>
+    <div class="exp">
+      <div class="key">Answer: <b>B</b></div>
+      FR: SOAR automatise les actions répétitives et réduit le temps de réponse (MTTR).
+    </div>
+  </div>
+</div>
+
+<!-- Q39 -->
+<div class="q" data-answer="A">
+  <div class="qhd">
+    <span class="qnum">Q39</span>
+    <p class="qtitle">What is a SOC Playbook?</p>
+    <span class="module">Playbooks</span>
+  </div>
+  <div class="qbd">
+    <label class="opt"><input type="radio" name="q39" value="A"/>
+      <span class="label">A) A step-by-step response procedure for incidents
+      <small>(Procédure de réponse étape par étape)</small></span>
+    </label>
+    <label class="opt"><input type="radio" name="q39" value="B"/>
+      <span class="label">B) Antivirus software
+      <small>(Antivirus)</small></span>
+    </label>
+    <label class="opt"><input type="radio" name="q39" value="C"/>
+      <span class="label">C) Encryption key
+      <small>(Clé de chiffrement)</small></span>
+    </label>
+    <label class="opt"><input type="radio" name="q39" value="D"/>
+      <span class="label">D) Backup system
+      <small>(Sauvegarde)</small></span>
+    </label>
+    <div class="exp">
+      <div class="key">Answer: <b>A</b></div>
+      FR: Playbook = standardiser la réponse SOC pour cohérence et rapidité.
+    </div>
+  </div>
+</div>
+
+<!-- Q40 -->
+<div class="q" data-answer="C">
+  <div class="qhd">
+    <span class="qnum">Q40</span>
+    <p class="qtitle">What is the MAIN benefit of SOC automation?</p>
+    <span class="module">Automation</span>
+  </div>
+  <div class="qbd">
+    <label class="opt"><input type="radio" name="q40" value="A"/>
+      <span class="label">A) More manual work
+      <small>(Plus de travail manuel)</small></span>
+    </label>
+    <label class="opt"><input type="radio" name="q40" value="B"/>
+      <span class="label">B) Slower response time
+      <small>(Réponse lente)</small></span>
+    </label>
+    <label class="opt"><input type="radio" name="q40" value="C"/>
+      <span class="label">C) Faster response and reduced analyst workload
+      <small>(Réponse rapide + réduction charge analyste)</small></span>
+    </label>
+    <label class="opt"><input type="radio" name="q40" value="D"/>
+      <span class="label">D) Disabling alerts
+      <small>(Désactiver alertes)</small></span>
+    </label>
+    <div class="exp">
+      <div class="key">Answer: <b>C</b></div>
+      FR: Automatisation = rapidité, cohérence, réduction fatigue analyste.
+    </div>
+  </div>
+</div>
+<!-- ========================= PART H ========================= -->
+<div class="sectionTitle">
+  <h3>Part H — Metrics, KPIs & SOC Performance</h3>
+  <span class="tag">MTTD | MTTR | SLA | KPIs | Tuning</span>
+</div>
+
+<!-- Q41 -->
+<div class="q" data-answer="B">
+  <div class="qhd">
+    <span class="qnum">Q41</span>
+    <p class="qtitle">What does MTTD stand for in a SOC?</p>
+    <span class="module">Metrics</span>
+  </div>
+  <div class="qbd">
+    <label class="opt"><input type="radio" name="q41" value="A"/>
+      <span class="label">A) Mean Time To Deliver
+      <small>(Temps moyen de livraison)</small></span>
+    </label>
+    <label class="opt"><input type="radio" name="q41" value="B"/>
+      <span class="label">B) Mean Time To Detect
+      <small>(Temps moyen de détection)</small></span>
+    </label>
+    <label class="opt"><input type="radio" name="q41" value="C"/>
+      <span class="label">C) Malware Threat Tracking Directory
+      <small>(Incorrect)</small></span>
+    </label>
+    <label class="opt"><input type="radio" name="q41" value="D"/>
+      <span class="label">D) Manual Threat Triage Duration
+      <small>(Incorrect)</small></span>
+    </label>
+    <div class="exp">
+      <div class="key">Answer: <b>B</b></div>
+      FR: MTTD mesure le temps moyen entre le début de l’attaque et sa détection par le SOC/outils.
+    </div>
+  </div>
+</div>
+
+<!-- Q42 -->
+<div class="q" data-answer="C">
+  <div class="qhd">
+    <span class="qnum">Q42</span>
+    <p class="qtitle">What does MTTR most commonly mean in incident response?</p>
+    <span class="module">Metrics</span>
+  </div>
+  <div class="qbd">
+    <label class="opt"><input type="radio" name="q42" value="A"/>
+      <span class="label">A) Mean Time To Read
+      <small>(Temps moyen de lecture)</small></span>
+    </label>
+    <label class="opt"><input type="radio" name="q42" value="B"/>
+      <span class="label">B) Mean Time To Report
+      <small>(Temps moyen de rapport)</small></span>
+    </label>
+    <label class="opt"><input type="radio" name="q42" value="C"/>
+      <span class="label">C) Mean Time To Respond / Resolve
+      <small>(Temps moyen de réponse / résolution)</small></span>
+    </label>
+    <label class="opt"><input type="radio" name="q42" value="D"/>
+      <span class="label">D) Mean Time To Reboot
+      <small>(Temps moyen de redémarrage)</small></span>
+    </label>
+    <div class="exp">
+      <div class="key">Answer: <b>C</b></div>
+      FR: MTTR = durée moyenne pour contenir + éradiquer + rétablir (selon org, “respond” ou “resolve”).
+    </div>
+  </div>
+</div>
+
+<!-- Q43 -->
+<div class="q" data-answer="A">
+  <div class="qhd">
+    <span class="qnum">Q43</span>
+    <p class="qtitle">Which metric directly reflects “how fast we detect” incidents?</p>
+    <span class="module">KPIs</span>
+  </div>
+  <div class="qbd">
+    <label class="opt"><input type="radio" name="q43" value="A"/>
+      <span class="label">A) MTTD
+      <small>(Temps moyen de détection)</small></span>
+    </label>
+    <label class="opt"><input type="radio" name="q43" value="B"/>
+      <span class="label">B) MTTR
+      <small>(Temps moyen de résolution)</small></span>
+    </label>
+    <label class="opt"><input type="radio" name="q43" value="C"/>
+      <span class="label">C) Number of keyboards in the office
+      <small>(Nombre de claviers)</small></span>
+    </label>
+    <label class="opt"><input type="radio" name="q43" value="D"/>
+      <span class="label">D) CPU temperature
+      <small>(Température CPU)</small></span>
+    </label>
+    <div class="exp">
+      <div class="key">Answer: <b>A</b></div>
+      FR: MTTD cible la vitesse de détection. Réduire MTTD = meilleure visibilité/logging/détections.
+    </div>
+  </div>
+</div>
+
+<!-- Q44 -->
+<div class="q" data-answer="B">
+  <div class="qhd">
+    <span class="qnum">Q44</span>
+    <p class="qtitle">What is an SLA in a SOC context?</p>
+    <span class="module">SLA</span>
+  </div>
+  <div class="qbd">
+    <label class="opt"><input type="radio" name="q44" value="A"/>
+      <span class="label">A) Security Log Archive
+      <small>(Archive des logs — incorrect)</small></span>
+    </label>
+    <label class="opt"><input type="radio" name="q44" value="B"/>
+      <span class="label">B) Service Level Agreement defining response/handling time targets
+      <small>(Accord de niveau de service: objectifs de temps de traitement)</small></span>
+    </label>
+    <label class="opt"><input type="radio" name="q44" value="C"/>
+      <span class="label">C) Single Login Access
+      <small>(Accès connexion unique — incorrect)</small></span>
+    </label>
+    <label class="opt"><input type="radio" name="q44" value="D"/>
+      <span class="label">D) System Load Average
+      <small>(Charge système — incorrect)</small></span>
+    </label>
+    <div class="exp">
+      <div class="key">Answer: <b>B</b></div>
+      FR: SLA fixe des délais (ex: répondre à un incident Critique en &lt; 15 min) et des responsabilités.
+    </div>
+  </div>
+</div>
+
+<!-- Q45 -->
+<div class="q" data-answer="D">
+  <div class="qhd">
+    <span class="qnum">Q45</span>
+    <p class="qtitle">Which KPI helps measure alert quality and analyst efficiency?</p>
+    <span class="module">KPIs</span>
+  </div>
+  <div class="qbd">
+    <label class="opt"><input type="radio" name="q45" value="A"/>
+      <span class="label">A) Screen resolution
+      <small>(Résolution écran)</small></span>
+    </label>
+    <label class="opt"><input type="radio" name="q45" value="B"/>
+      <span class="label">B) Number of wallpapers changed per week
+      <small>(Fond d’écran)</small></span>
+    </label>
+    <label class="opt"><input type="radio" name="q45" value="C"/>
+      <span class="label">C) Office chair comfort score
+      <small>(Score chaise)</small></span>
+    </label>
+    <label class="opt"><input type="radio" name="q45" value="D"/>
+      <span class="label">D) False Positive rate and alert-to-incident conversion rate
+      <small>(Taux de faux positifs + ratio alertes→incidents)</small></span>
+    </label>
+    <div class="exp">
+      <div class="key">Answer: <b>D</b></div>
+      FR: Beaucoup de FP = bruit + fatigue. Un bon KPI = alertes utiles + incidents réels identifiés.
+    </div>
+  </div>
+</div>
+
+<!-- Q46 -->
+<div class="q" data-answer="A">
+  <div class="qhd">
+    <span class="qnum">Q46</span>
+    <p class="qtitle">If your SOC has too many false positives, what is a BEST improvement action?</p>
+    <span class="module">Tuning</span>
+  </div>
+  <div class="qbd">
+    <label class="opt"><input type="radio" name="q46" value="A"/>
+      <span class="label">A) Tune detection rules and improve baselining/context enrichment
+      <small>(Tuner les règles + baseline + enrichissement contexte)</small></span>
+    </label>
+    <label class="opt"><input type="radio" name="q46" value="B"/>
+      <span class="label">B) Disable all alerts permanently
+      <small>(Désactiver toutes les alertes)</small></span>
+    </label>
+    <label class="opt"><input type="radio" name="q46" value="C"/>
+      <span class="label">C) Stop collecting logs
+      <small>(Arrêter collecte logs)</small></span>
+    </label>
+    <label class="opt"><input type="radio" name="q46" value="D"/>
+      <span class="label">D) Remove MFA
+      <small>(Retirer MFA)</small></span>
+    </label>
+    <div class="exp">
+      <div class="key">Answer: <b>A</b></div>
+      FR: On réduit le bruit en ajustant les seuils, ajoutant contexte (asset criticality), et en améliorant les règles.
+    </div>
+  </div>
+</div>
+
+<!-- Q47 -->
+<div class="q" data-answer="C">
+  <div class="qhd">
+    <span class="qnum">Q47</span>
+    <p class="qtitle">What is “alert fatigue”?</p>
+    <span class="module">SOC Operations</span>
+  </div>
+  <div class="qbd">
+    <label class="opt"><input type="radio" name="q47" value="A"/>
+      <span class="label">A) A firewall feature
+      <small>(Fonction pare-feu)</small></span>
+    </label>
+    <label class="opt"><input type="radio" name="q47" value="B"/>
+      <span class="label">B) A type of encryption algorithm
+      <small>(Algorithme de chiffrement)</small></span>
+    </label>
+    <label class="opt"><input type="radio" name="q47" value="C"/>
+      <span class="label">C) Analyst exhaustion due to excessive/low-quality alerts
+      <small>(Fatigue analyste due au bruit d’alertes)</small></span>
+    </label>
+    <label class="opt"><input type="radio" name="q47" value="D"/>
+      <span class="label">D) A VPN protocol
+      <small>(Protocole VPN)</small></span>
+    </label>
+    <div class="exp">
+      <div class="key">Answer: <b>C</b></div>
+      FR: Trop d’alertes non pertinentes = baisse de vigilance et risque de manquer un vrai incident.
+    </div>
+  </div>
+</div>
+
+<!-- Q48 -->
+<div class="q" data-answer="B">
+  <div class="qhd">
+    <span class="qnum">Q48</span>
+    <p class="qtitle">Which outcome BEST shows SOC performance improving over time?</p>
+    <span class="module">KPIs</span>
+  </div>
+  <div class="qbd">
+    <label class="opt"><input type="radio" name="q48" value="A"/>
+      <span class="label">A) Increasing false negatives
+      <small>(Augmenter faux négatifs)</small></span>
+    </label>
+    <label class="opt"><input type="radio" name="q48" value="B"/>
+      <span class="label">B) Reduced MTTD and reduced MTTR
+      <small>(Baisse MTTD + baisse MTTR)</small></span>
+    </label>
+    <label class="opt"><input type="radio" name="q48" value="C"/>
+      <span class="label">C) Removing logging sources
+      <small>(Supprimer sources de logs)</small></span>
+    </label>
+    <label class="opt"><input type="radio" name="q48" value="D"/>
+      <span class="label">D) Slower incident handling
+      <small>(Traitement plus lent)</small></span>
+    </label>
+    <div class="exp">
+      <div class="key">Answer: <b>B</b></div>
+      FR: Objectif SOC: détecter plus vite (MTTD) et répondre plus vite (MTTR) tout en gardant qualité.
+    </div>
+  </div>
+</div>
+<!-- ========================= FOOTER ========================= -->
+<footer>
+  <p>
+    SOC Level 1 Final Exam Simulator — EN / FR / AR Vocabulary Edition<br>
+    Designed for Theory Revision • Practice • Certification Preparation
+  </p>
+</footer>
+
+</div> <!-- end LEFT card -->
+
+</div> <!-- end grid -->
+</div> <!-- end wrap -->
+
+<!-- ========================= SCRIPT ========================= -->
+<script>
+function revealAll() {
+  document.querySelectorAll(".exp").forEach(e => {
+    e.style.display = "block";
+  });
+}
+
+function hideAll() {
+  document.querySelectorAll(".exp").forEach(e => {
+    e.style.display = "none";
+  });
+}
+
+function resetAll() {
+  document.querySelectorAll("input[type=radio]").forEach(r => {
+    r.checked = false;
+  });
+
+  hideAll();
+}
+</script>
+
+</body>
+</html>
+
