@@ -138,3 +138,33 @@ sudo /opt/splunk/bin/splunk status
 Expected output:
 
 splunkd is running
+
+## Splunk Web Interface Verification
+
+After completing the installation and starting the Splunk service, the web interface was successfully accessed from the host machine.
+
+Access URL:
+
+http://192.168.249.128:8000
+
+
+Installation verification screenshot:
+
+![Splunk Web Interface Running Successfully](Screenshots/setup.png)
+
+✅ Preview In VS Code
+
+Press:
+
+CTRL + SHIFT + V
+
+
+You should see your Splunk interface image rendered.
+
+✅ Push Update To GitHub
+
+Run in your project folder:
+
+git add .
+git commit -m "Add Splunk installation verification screenshot"
+git push
