@@ -12,6 +12,7 @@ By the end of this lesson, you will understand:
 - How to detect suspicious patterns using time-based analysis  
 
 ---
+![Image Alt](https://github.com/mouhssine007/soc-bootcamp/blob/750ae6c9762367e29af4cc17f91a8b3a506788e5/s.png).
 
 ## Part 1 — Understanding SSH Event Types
 
