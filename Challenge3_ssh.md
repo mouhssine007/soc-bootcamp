@@ -231,3 +231,4 @@ Failed logins indicate brute-force attempts
 timechart helps detect abnormal behavior over time
 
 Pipeline commands allow structured data analysis
+![SSH Analysis Screenshot](s.png)
