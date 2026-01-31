@@ -164,3 +164,9 @@ Time-based behavior
 Conclusion
 
 Using Splunk pipelines with the stats, sort, and head commands allows analysts to quickly identify the most active HTTP clients. This forms a foundational step in web traffic monitoring and threat detection.
+![Image Alt](https://github.com/mouhssine007/soc-bootcamp/blob/bf3e3f5365431a3cf25eb53cbe9cecf35620f5ad/http.png).
+![Image Alt](https://github.com/mouhssine007/soc-bootcamp/blob/bf3e3f5365431a3cf25eb53cbe9cecf35620f5ad/http2.png).
+![Image Alt](https://github.com/mouhssine007/soc-bootcamp/blob/bf3e3f5365431a3cf25eb53cbe9cecf35620f5ad/http3.png).
+![Image Alt](https://github.com/mouhssine007/soc-bootcamp/blob/bf3e3f5365431a3cf25eb53cbe9cecf35620f5ad/http4.png).
+![Image Alt](https://github.com/mouhssine007/soc-bootcamp/blob/bf3e3f5365431a3cf25eb53cbe9cecf35620f5ad/htpp5.png).
+
