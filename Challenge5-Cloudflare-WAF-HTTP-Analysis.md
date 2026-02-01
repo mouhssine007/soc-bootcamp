@@ -85,6 +85,6 @@ Identify attackers targeting login pages
 
 Detect failed authentication patterns
 
-![Brute Force Attack Diagram](https://raw.githubusercontent.com/mouhssine007/soc-bootcamp/main/brute_force.png)
+![Image Alt](https://github.com/mouhssine007/soc-bootcamp/blob/9ea1e8c1baba82545afb06f674326ad180bb48af/brute_force.png).
 
 Prioritize IP addresses performing brute force attempts
