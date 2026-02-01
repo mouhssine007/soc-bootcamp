@@ -98,3 +98,21 @@ Identify attack sources
 Analyze Cloudflare WAF mitigation behavior
 ---
 ![Image Alt](https://github.com/mouhssine007/soc-bootcamp/blob/9aaddc55e903c32c52a21c5cca4834b28b8e6306/brute_force1.png).
+
+Task 3 — Cross-Site Scripting (XSS) Detection
+
+XSS attacks frequently include JavaScript injection patterns such as <script> or encoded variants.
+
+SPL Query
+index=cloudflare_lab (URI="*<script>*" OR URI="*%3Cscript%3E*")
+| stats count AS hits by ClientIP, URI, UserAgent, Status
+| sort -hits
+
+Purpose
+
+Identify JavaScript injection attempts
+
+Detect malicious payload distribution attempts
+
+Analyze server response behavior
+![Image Alt](https://github.com/mouhssine007/soc-bootcamp/blob/97a70bc7028cbcb9e0e0274351d3d14ce5e940a5/brute_force3.png).
