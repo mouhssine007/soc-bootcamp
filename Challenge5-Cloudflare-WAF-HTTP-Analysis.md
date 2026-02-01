@@ -155,3 +155,64 @@ URI targets common admin interfaces.
 Status shows whether attempts were blocked, missing, or (worse) allowed.
 
 ![Image Alt](https://github.com/mouhssine007/soc-bootcamp/blob/0f9310fa4cc8570006d2cfd1c6895600a5bfdff2/brute_force5.png).
+Security Analysis Observations
+
+During this lab, multiple attack behaviors were simulated:
+
+Login brute force attempts targeting CMS authentication endpoints
+
+SQL injection payload testing against dynamic web pages
+
+JavaScript injection attempts for XSS exploitation
+
+File system access attempts using LFI patterns
+
+Reconnaissance scans against administrative interfaces
+
+Cloudflare WAF action fields provide visibility into whether malicious traffic was:
+
+Blocked
+
+Logged
+
+Challenged
+
+This enables correlation between security enforcement and HTTP activity.
+
+SOC Analyst Skills Practiced
+
+This project strengthens the following SOC skills:
+
+SIEM log ingestion and validation
+
+SPL query construction
+
+Pattern-based attack detection
+
+HTTP threat analysis
+
+Web attack classification
+
+Cloud WAF signal interpretation
+
+Data filtering and aggregation
+
+Attack source prioritization
+
+Conclusion
+
+This project demonstrates how Cloudflare HTTP logs can be analyzed using Splunk to detect multiple categories of web-based attacks. By combining URI pattern matching, HTTP status analysis, and WAF action correlation, analysts gain visibility into attacker behavior and security control effectiveness.
+
+The techniques used in this lab reflect real-world SOC workflows for monitoring public-facing web applications and cloud-protected services.
+
+Key Takeaways
+
+SPL pipelines enable efficient security analysis
+
+Proper use of logical operators and filtering improves detection accuracy
+
+Cloudflare WAF signals enhance threat visibility
+
+Web log analysis is a core SOC responsibility
+
+Combining multiple detection techniques provides stronger security coverage
