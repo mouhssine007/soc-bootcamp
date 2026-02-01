@@ -134,3 +134,11 @@ index=cloudflare_lab (URI="*/etc/passwd*" OR URI="*../*" OR URI="*..%2F*")
 
 
 ![Image Alt](https://github.com/mouhssine007/soc-bootcamp/blob/c3b12ddf504b21b6f0d0fbe527f133809cfd86c3/brute_force4.png).
+
+Purpose
+
+Detect file disclosure attempts
+
+Identify directory traversal behavior
+
+Monitor access to sensitive resources
