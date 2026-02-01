@@ -63,7 +63,7 @@ cloudflare_http_requests_with_raw.jsonl
 5. Complete upload
 
 ---
-
+![Image Alt](https://github.com/mouhssine007/soc-bootcamp/blob/9ea1e8c1baba82545afb06f674326ad180bb48af/brute_force.png).
 ### Validation
 
 Verify successful ingestion:
@@ -85,6 +85,5 @@ Identify attackers targeting login pages
 
 Detect failed authentication patterns
 
-![Image Alt](https://github.com/mouhssine007/soc-bootcamp/blob/9ea1e8c1baba82545afb06f674326ad180bb48af/brute_force.png).
 
 Prioritize IP addresses performing brute force attempts
