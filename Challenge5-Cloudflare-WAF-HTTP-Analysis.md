@@ -116,3 +116,21 @@ Detect malicious payload distribution attempts
 
 Analyze server response behavior
 ![Image Alt](https://github.com/mouhssine007/soc-bootcamp/blob/97a70bc7028cbcb9e0e0274351d3d14ce5e940a5/brute_force3.png).
+
+Task 4 — Local File Inclusion (LFI) and Directory Traversal Detection
+
+Attackers attempt to read sensitive system files or traverse directories using patterns such as:
+
+/etc/passwd
+
+../
+
+..%2F
+
+SPL Query
+index=cloudflare_lab (URI="*/etc/passwd*" OR URI="*../*" OR URI="*..%2F*")
+| stats count AS attempts by ClientIP, URI, Status
+| sort -attempts
+
+
+![Image Alt](https://github.com/mouhssine007/soc-bootcamp/blob/c3b12ddf504b21b6f0d0fbe527f133809cfd86c3/brute_force4.png).
