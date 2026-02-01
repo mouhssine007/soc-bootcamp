@@ -142,3 +142,16 @@ Detect file disclosure attempts
 Identify directory traversal behavior
 
 Monitor access to sensitive resources
+
+Task 5 — Recon & Admin Path Scanning
+Enumeration of admin interfaces or internal utilities.
+
+index=cloudflare_lab (URI="/admin" OR URI="/phpmyadmin" OR URI="/wp-admin" OR URI="/.git/HEAD" OR URI="/server-status")
+| stats count AS hits by ClientIP, URI, Status
+| sort -hits
+Here
+
+URI targets common admin interfaces.
+Status shows whether attempts were blocked, missing, or (worse) allowed.
+
+![Image Alt](https://github.com/mouhssine007/soc-bootcamp/blob/0f9310fa4cc8570006d2cfd1c6895600a5bfdff2/brute_force5.png).
