@@ -85,5 +85,16 @@ Identify attackers targeting login pages
 
 Detect failed authentication patterns
 
-
 Prioritize IP addresses performing brute force attempts
+```
+index=cloudflare_lab (URI="*' OR '1'='1*" OR URI="*UNION SELECT*")
+| stats count AS hits by ClientIP, URI, UserAgent, WAFAction
+| sort -hits
+Purpose
+Detect SQL injection attempts in HTTP requests
+
+Identify attack sources
+
+Analyze Cloudflare WAF mitigation behavior
+---
+![Image Alt](https://github.com/mouhssine007/soc-bootcamp/blob/9ea1e8c1baba82545afb06f674326ad180bb48af/brute_force1.png).
