@@ -1,26 +1,28 @@
 🔐 SSH Brute‑Force Detection Lab
-Splunk SIEM + Ubuntu Target + Linux Forwarder + Kali Linux
+<p align="center"> <img src="https://img.shields.io/badge/SIEM-Splunk-blue?style=for-the-badge"> <img src="https://img.shields.io/badge/Attack-Hydra-red?style=for-the-badge"> <img src="https://img.shields.io/badge/OS-Ubuntu-orange?style=for-the-badge"> <img src="https://img.shields.io/badge/Framework-MITRE_ATT%26CK-green?style=for-the-badge"> </p>
+📌 Project Overview
+This lab simulates an SSH brute‑force attack and demonstrates how a SOC analyst detects and responds using Splunk SIEM.
 
-📌 Objective
-Simulate an SSH brute‑force attack using Kali Linux, forward authentication logs to Splunk SIEM, detect the attack, map it to MITRE ATT&CK, and perform incident response.
+Logs are collected from a Linux target via Splunk Universal Forwarder, analyzed in Splunk, and mapped to MITRE ATT&CK.
 
 🧠 Lab Architecture
-Kali Attacker ──────▶ Ubuntu Target ──────▶ Splunk Forwarder ──────▶ Splunk SIEM
-   (Hydra)             (auth.log)            (Port 9997)              (Detection)
+Diagramme
+flowchart LR
+    A[Kali Attacker] -->|Hydra SSH Attack| B[Ubuntu Target]
+    B -->|auth.log| C[Splunk Forwarder]
+    C -->|Port 9997| D[Splunk SIEM]
+    D -->|Detection & Alerts| E[SOC Analyst]
 🌐 Network Configuration
-All machines use:
-
-VMware Adapter: NAT
-Subnet: 192.168.80.0/24
-🖥️ Virtual Machines & IP Mapping
-VM Name	Role	IP Address
-Ubuntu_Splunk	SIEM Server	192.168.80.130
-Linux_Forwarder	Log Collector	192.168.80.129
-Ubuntu_Target	SSH Victim	192.168.80.133
-Kali_Attacker	Attacker	192.168.80.135
+Setting	Value
+Network Mode	VMware NAT
+Subnet	192.168.80.0/24
+🖥️ Virtual Machines
+VM Name	Role	IP
+🧠 Ubuntu_Splunk	SIEM Server	192.168.80.130
+📦 Linux_Forwarder	Log Collector	192.168.80.129
+🎯 Ubuntu_Target	Victim Server	192.168.80.133
+☠️ Kali_Linux	Attacker	192.168.80.135
 ⚙️ Splunk SIEM Setup
-Install Splunk:
-
 wget -O splunk.deb https://download.splunk.com/products/splunk/releases/9.x/linux/splunk.deb
 sudo dpkg -i splunk.deb
 sudo /opt/splunk/bin/splunk start --accept-license
@@ -30,29 +32,16 @@ admin / Newpassword123!
 Enable receiving:
 
 Settings → Forwarding & Receiving → Add 9997
-⚙️ Install Forwarder on Ubuntu Target
-Download:
-
+📥 Install Splunk Forwarder (Target)
 wget -O splunkforwarder.deb https://download.splunk.com/products/universalforwarder/releases/9.x/linux/splunkforwarder.deb
-Install + start:
-
 sudo dpkg -i splunkforwarder.deb
 sudo /opt/splunkforwarder/bin/splunk start --accept-license
-🔗 Connect Target → Splunk
+🔗 Connect to Splunk
 sudo /opt/splunkforwarder/bin/splunk add forward-server 192.168.80.130:9997 -auth admin:Splunk123!
 Verify:
 
 sudo /opt/splunkforwarder/bin/splunk list forward-server
-Expected:
-
-Active forwards:
-192.168.80.130:9997
-📂 Monitor SSH Logs
-Edit inputs:
-
-sudo nano /opt/splunkforwarder/etc/system/local/inputs.conf
-Add:
-
+📂 Log Monitoring
 [monitor:///var/log/auth.log]
 disabled = false
 index = security_incidents
@@ -60,11 +49,9 @@ sourcetype = linux_secure
 Restart:
 
 sudo /opt/splunkforwarder/bin/splunk restart
-🧪 Attack Simulation — Kali Linux
-Create Password List
+☠️ Attack Simulation (Kali)
+Password List
 nano /tmp/passlist.txt
-Example:
-
 password
 123456
 admin123
@@ -72,9 +59,9 @@ welcome
 P@ssw0rd
 letmein
 qwerty
-Run Hydra Brute Force
+Hydra Attack
 hydra -t 4 -V -l mrlazarus -P /tmp/passlist.txt ssh://192.168.80.133
-🔍 Detection in Splunk
+🔍 Detection Queries
 Failed Logins
 index=security_incidents "Failed password"
 Brute‑Force Detection
@@ -83,49 +70,38 @@ index=security_incidents "Failed password" earliest=-5m
 | stats count as attempts values(user) as users by attacker_ip
 | where attempts >= 5
 | sort -attempts
-🚨 Alert Rule
-Trigger: 5 failures / 5 minutes
-
-Schedule:
-
-Run every 1 minute
-
-Time range: Last 5 minutes
-
-Trigger when results > 0
-
-Alert title:
+🚨 Splunk Alert Rule
+Setting	Value
+Alert Type	Scheduled
+Time Range	Last 5 minutes
+Run Every	1 minute
+Trigger	Results > 0
+Alert Name:
 
 SSH Brute Force Detection
-🛡️ Incident Response
-Block attacker IP:
-
-sudo ufw insert 1 deny from 192.168.80.135 to any port 22 proto tcp
 🧭 MITRE ATT&CK Mapping
 Tactic	Technique	ID
 Credential Access	Brute Force	T1110
+Credential Access	Password Spraying	T1110.003
 Initial Access	Valid Accounts	T1078
 Discovery	Account Discovery	T1087
-Credential Access	Password Spraying	T1110.003
-Primary Technique Observed
-T1110 — Brute Force
-
-Hydra executed multiple password attempts against SSH.
-
 📊 Indicators of Compromise
 IOC	Value
 Attacker IP	192.168.80.135
 Target IP	192.168.80.133
 Service	SSH
 Log Source	/var/log/auth.log
-Event	Failed Password
+🛡️ Incident Response
+sudo ufw insert 1 deny from 192.168.80.135 to any port 22 proto tcp
 ✅ Lab Outcomes
-Centralized log ingestion
+SSH brute‑force simulated
 
-SSH brute‑force simulation
+Logs centralized in SIEM
 
-Detection engineering
+Detection queries built
 
-MITRE ATT&CK mapping
+Alerts configured
 
-SOC response workflow
+MITRE mapping completed
+
+Attacker blocked
