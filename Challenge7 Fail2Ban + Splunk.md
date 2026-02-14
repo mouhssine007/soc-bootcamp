@@ -45,3 +45,7 @@ MITRE ATT&CK Mapping
 T1110 — Brute Force
 
 T1078 — Valid Accounts (if successful login happens)
+![Architecture](Screenshots/ban.png)
+![Architecture](Screenshots/ban3.png)
+![Architecture](Screenshots/ban4.png)
+
