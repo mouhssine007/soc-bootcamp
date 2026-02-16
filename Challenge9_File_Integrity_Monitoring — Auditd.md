@@ -177,3 +177,7 @@ chown root:root /etc/passwd
 | File Deletion | Indicator Removal on Host | T1070 |
 | Privilege Abuse | Exploitation for Privilege Escalation | T1068 |
 | SSH Lateral Movement | Remote Services (SSH) | T1021 |
+
+![Architecture](Screenshots/1.png)
+![Architecture](Screenshots/2.png)
+![Architecture](Screenshots/3.png)
