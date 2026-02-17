@@ -219,3 +219,5 @@ Check active sessions:
 
 sudo netstat -tulnp | grep 192.168.80.135
 Terminate connections if required.
+![Architecture](Screenshots/a.png)
+![Architecture](Screenshots/a1.png)
