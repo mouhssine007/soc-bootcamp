@@ -182,12 +182,35 @@ dest_ip	Target server
 signature	Detected attack
 category	Threat classification
 severity	Alert priority
-🧭 MITRE ATT&CK Mapping
-Activity	Technique	ID
-Active scanning	Reconnaissance	T1595
-Service enumeration	Network Service Discovery	T1046
-SSH probing	Remote Service Discovery	T1021
-C2 traffic detection	Command & Control	T1071
+# 🧭 MITRE ATT&CK Mapping
+
+| Activity | Technique | Technique Name | MITRE ID |
+|----------|------------|----------------|----------|
+| Active Scanning | Reconnaissance | Active Scanning | T1595 |
+| Service Enumeration | Discovery | Network Service Discovery | T1046 |
+| SSH Probing | Lateral Movement | Remote Services (SSH) | T1021.004 |
+| C2 Traffic Detection | Command & Control | Application Layer Protocol | T1071 |
+
+---
+
+# 🚨 Incident Response Actions
+
+| Step | Action | Command / Method | Purpose |
+|------|--------|------------------|---------|
+| 1 | Identify attacker IP | Splunk search (`src_ip`) | Determine source of attack |
+| 2 | Validate alert | Review Suricata signature | Confirm malicious activity |
+| 3 | Block attacker IP | `sudo ufw deny from 192.168.80.135` | Stop further traffic |
+| 4 | Check active connections | `netstat -tulnp \| grep 192.168.80.135` | Identify live sessions |
+| 5 | Terminate malicious process | `sudo kill <PID>` | Disrupt attacker access |
+| 6 | Review IDS logs | `/var/log/suricata/eve.json` | Investigate timeline |
+| 7 | Correlate in SIEM | Splunk dashboards/search | Full visibility |
+| 8 | Document incident | SOC report / case notes | Compliance & lessons learned |
+
+---
+
+# 🛡️ Detection → Response Flow
+
+
 🚨 Incident Response Actions
 Block attacker IP:
 
