@@ -30,3 +30,20 @@ Sysmon telemetry is forwarded to **Splunk SIEM** for centralized monitoring and 
 
 ## 🧱 Lab Architecture
 
+
+This lab monitors user activity on a Linux endpoint using Sysmon telemetry forwarded to Splunk SIEM.
+Kali Linux (Attacker)
+192.168.80.135
+        │
+        │ SSH / Commands / Downloads
+        ▼
+Ubuntu Server (Sysmon Monitored Host)
+192.168.80.133
+        │
+        │ Sysmon Logs → /var/log/syslog
+        ▼
+Splunk Universal Forwarder
+        │
+        ▼
+Splunk SIEM Server
+192.168.80.130
