@@ -274,11 +274,11 @@ Configure Splunk Universal Forwarder:
 
 Edit the Splunk input configuration file:
 
-
+```bash
 sudo nano /opt/splunkforwarder/etc/system/local/inputs.conf
-
+```
 Add the following entry to forward Sysmon logs:
-
+```bash
 [monitor:///var/log/syslog]
 disabled = false
 index = sysmon_logs
@@ -290,7 +290,7 @@ index_earliest_time = -1d
 time_zone = UTC
 # Make sure to parse syslog events correctly
 whitelist = \.log$
-
+```
 Restart the Splunk Forwarder:
 
 ```bash
