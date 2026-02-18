@@ -353,7 +353,7 @@ Splunk Query
 
 index=sysmon_logs "/etc/passwd"
 ```
-5️⃣ Sensitive File Modification
+ Sensitive File Modification
 Attack (Kali)
 ```bash
 
@@ -383,7 +383,7 @@ Splunk Query
 ```bash
 index=sysmon_logs curl OR EventID=3
 ```
-8️⃣ Scheduled Task Persistence (Cron)
+ Scheduled Task Persistence (Cron)
 Attack (Kali)
 ```bash
 
@@ -394,7 +394,7 @@ Splunk Query
 
 index=sysmon_logs cron OR crontab
 ```
-9️⃣ Account Deletion (Cleanup)
+ Account Deletion (Cleanup)
 Attack (Kali)
 ```bash
 
